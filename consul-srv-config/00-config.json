@@ -2,7 +2,7 @@
   "skip_leave_on_interrupt": true,
   "leave_on_terminate": false,
   "data_dir": "/consul/data",
-  "log_level": "DEBUG",
+  "log_level": "INFO",
   "server": true,
   "retry_join": ["consul1"],
   "rejoin_after_leave": true,

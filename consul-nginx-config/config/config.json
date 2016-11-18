@@ -1,0 +1,8 @@
+consul = "172.18.233.1:8500"
+
+template {
+  source      = "/consul-template/template/template.tpl"
+  destination = "/etc/nginx/nginx.conf"
+  #command     = "nginx -s reload"
+}
+

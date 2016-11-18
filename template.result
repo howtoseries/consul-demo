@@ -1,0 +1,17 @@
+http {
+  upstream app1 {
+
+	server 172.18.233.65:8080
+
+	server 172.18.233.64:8080
+
+  }
+}
+
+server {
+	location /app1 {
+		proxy_pass http://backend;
+	}
+}
+  
+

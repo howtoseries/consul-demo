@@ -1,6 +1,6 @@
 { 
-  "retry_join": [ "consul1" ], 
+  "retry_join": [ "consul1" ] ,
   "leave_on_terminate": true ,
-  "skip_leave_on_interrupt": false
+  "skip_leave_on_interrupt": false  
 }
 
