@@ -61,7 +61,13 @@ services:
   app1:
     volumes:
       - ./consul-app-config:/consul/config
-    image: tramasoli/consul-demo-client
+    image: tramasoli/consul-demo-client:app
+    networks:
+      - app_net
+  nginx:
+    volumes:
+      - ./consul-nginx-config:/consul-template
+    image: tramasoli/consul-demo-client:nginx
     networks:
       - app_net
 
