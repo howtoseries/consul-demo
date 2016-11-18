@@ -8,7 +8,7 @@ http {
 
   server {
     listen 80;
-    location /app1 {
+    location / {
       proxy_pass http://app1;
     }
   }  
