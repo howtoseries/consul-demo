@@ -1,0 +1,12 @@
+{ 
+  "skip_leave_on_interrupt": true,
+  "leave_on_terminate": false,
+  "data_dir": "/consul/data",
+  "log_level": "DEBUG",
+  "server": true,
+  "retry_join": ["consul1"],
+  "rejoin_after_leave": true,
+  "bootstrap_expect": 3,
+  "recursors": [ "172.18.233.1" ],
+  "ui": true
+}
