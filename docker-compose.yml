@@ -67,10 +67,9 @@ services:
       - "8600"
       - "8600/udp"
   app1:
-    #image: tramasoli/sample-springboot-rest
     volumes:
       - ./consul-app-config:/consul/config
-    image: tramasoli/teste
+    image: tramasoli/consul-demo-client
     networks:
       - app_net
 networks:
