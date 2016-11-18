@@ -7,6 +7,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /var/tmp/* \
     && cd /usr/local/bin \
     && wget https://releases.hashicorp.com/consul-template/0.16.0/consul-template_0.16.0_linux_amd64.zip \
+    && unzip consul*zip \
+    && rm consul*zip \
     && wget https://releases.hashicorp.com/consul/0.7.1/consul_0.7.1_linux_amd64.zip \
     && unzip consul*zip \
     && rm consul*zip \
