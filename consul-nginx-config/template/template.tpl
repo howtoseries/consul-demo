@@ -1,3 +1,8 @@
+events {
+	worker_connections 15;
+	# multi_accept on;
+}
+
 http {
   upstream app1 {
   {{range service "app1"}}
