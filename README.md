@@ -7,7 +7,7 @@ This demo shows how Consul (http://consul.io) works. It simulates an environment
 * App Layer - 1 springboot rest app (it's just the sample rest app that prints additional string of HOST where it runs)
 * Reverse Proxy / Load Balancer Layer - 1 nginx server
 
-This demo uses docker-compose to build the environment only for easiness of distribution. In order to use Consul in a Docker Env in 'the real world' the pattern differs. BE WARNED.
+This demo uses docker-compose to build the environment only for easiness of distribution. In order to use Consul in a Docker Env in 'the real world' this is not the way to do it. BE WARNED.
 
 ## Pre-requisites
 
