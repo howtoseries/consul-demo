@@ -7,7 +7,7 @@ services:
     dns: 172.18.233.1
     command: consul agent -server -ui -config-dir=/consul/config
     volumes:
-      - ./consul-srv-config:/consul/config
+      - ./consul-srv-config/consul:/consul/config
     networks:
       app_net:
         ipv4_address: 172.18.233.20
@@ -26,7 +26,7 @@ services:
     dns: 172.18.233.1
     command: consul agent -server -ui -config-dir=/consul/config
     volumes:
-      - ./consul-srv-config:/consul/config
+      - ./consul-srv-config/consul:/consul/config
     networks:
       app_net:
         ipv4_address: 172.18.233.21
@@ -45,7 +45,7 @@ services:
     dns: 172.18.233.1
     command: consul agent -server -ui -config-dir=/consul/config
     volumes:
-      - ./consul-srv-config:/consul/config
+      - ./consul-srv-config/consul:/consul/config
     networks:
       app_net:
         ipv4_address: 172.18.233.22
@@ -60,13 +60,14 @@ services:
       - "8600/udp"
   app1:
     volumes:
-      - ./consul-app-config:/consul/config
+      - ./consul-app-config/consul:/consul/config
     image: tramasoli/consul-demo-client:app
     networks:
       - app_net
   nginx:
     volumes:
-      - ./consul-nginx-config:/consul-template
+      - ./consul-nginx-config/consul-template:/consul-template
+      - ./consul-nginx-config/consul:/consul/config
     image: tramasoli/consul-demo-client:nginx
     networks:
       - app_net

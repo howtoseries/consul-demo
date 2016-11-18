@@ -1,4 +1,4 @@
-consul = "172.18.233.1:8500"
+consul = "127.0.0.1:8500"
 
 template {
   source      = "/consul-template/template/template.tpl"
