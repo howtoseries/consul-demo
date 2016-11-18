@@ -21,6 +21,6 @@ RUN apt-get update \
 RUN echo "nginx & " > /bootstrap.sh
 RUN echo "/usr/local/bin/consul agent -data-dir=/consul/data -config-dir=/consul/config &" >> /bootstrap.sh
 RUN echo "/usr/local/bin/consul-template -config=/consul-template/config &" >> /bootstrap.sh
-VOLUME /consul-template/ /consul/config
+VOLUME [ "/consul-template/", "/consul/config" ]
 EXPOSE 8500 8080
 CMD ["/bin/bash","/bootstrap.sh"]
