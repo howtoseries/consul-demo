@@ -50,7 +50,7 @@ Now you are part of the cluster! Browse to http://localhost:8500/ui ;)
 
 So you know the SERVICE REGISTRY LAYER, but there are more LAYERS, remember?
 
-The LOAD BALANCER LAYER is not only registering itself in Consul, it's reading info from the registry too! The scenario is that NGINX is a reverse proxy for APP1. So there's an application (consul-template) that constantly reads thata from Consul and, if there are any changes, it recreates NGINX's config file and reloads the daemon. NICE!
+The LOAD BALANCER LAYER is not only registering itself in Consul, it's reading info from the registry too! The scenario is that NGINX is a reverse proxy for APP1. So there's an application (consul-template) that constantly reads data from Consul and, if there are any changes, it recreates NGINX's config file and reloads the daemon. NICE!
 
 ## How can you play with the demo
 
@@ -64,7 +64,7 @@ Then:
 
 Nice! The response will be the same in both calls, but we'll improve that in a little bit.
 
-Docker-Compose let's us do a simple yet powerful trick: scale the apps it defines. In this scenario the true power of the Servicy Registry kicks in.
+Docker-Compose let's us do a simple yet powerful trick: scale the apps it defines. In this scenario the true power of the Service Registry kicks in.
 
 So you can for instance:
 * docker-compose scale app1=4 (I don't recommend getting this number high 'cause - you know - springboot is JAVA, the resources eater)
