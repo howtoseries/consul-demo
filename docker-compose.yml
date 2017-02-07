@@ -74,7 +74,7 @@ services:
 
 networks:
   app_net:
-    driver: default
+    driver: bridge
     ipam:
       driver: default
       config:
