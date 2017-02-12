@@ -1,5 +1,5 @@
 { "service": { 
-    "name": "app1",
+    "name": "app",
     "port": 8080
     }
 }

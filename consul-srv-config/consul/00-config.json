@@ -4,9 +4,8 @@
   "data_dir": "/consul/data",
   "log_level": "INFO",
   "server": true,
-  "retry_join": ["consul1"],
+  "retry_join": ["consul1","consul2","consul3"],
   "rejoin_after_leave": true,
   "bootstrap_expect": 3,
-  "recursors": [ "172.18.233.1" ],
   "ui": true
 }

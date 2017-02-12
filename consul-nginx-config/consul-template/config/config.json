@@ -2,7 +2,7 @@ consul = "127.0.0.1:8500"
 
 template {
   source      = "/consul-template/template/template.tpl"
-  destination = "/etc/nginx/nginx.conf"
+  destination = "/etc/nginx/conf.d/consul-template.conf"
   command     = "nginx -s reload"
 }
 

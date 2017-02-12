@@ -4,13 +4,11 @@ services:
   consul1:
     hostname: consul1
     image: consul
-    dns: 172.18.233.1
     command: consul agent -server -ui -config-dir=/consul/config
     volumes:
       - ./consul-srv-config/consul:/consul/config
     networks:
       app_net:
-        ipv4_address: 172.18.233.20
     expose:
       - "8301"
       - "8301/udp"
@@ -23,13 +21,11 @@ services:
   consul2:
     hostname: consul2
     image: consul
-    dns: 172.18.233.1
     command: consul agent -server -ui -config-dir=/consul/config
     volumes:
       - ./consul-srv-config/consul:/consul/config
     networks:
       app_net:
-        ipv4_address: 172.18.233.21
     expose:
       - "8301"
       - "8301/udp"
@@ -42,13 +38,11 @@ services:
   consul3:
     hostname: consul3
     image: consul
-    dns: 172.18.233.1
     command: consul agent -server -ui -config-dir=/consul/config
     volumes:
       - ./consul-srv-config/consul:/consul/config
     networks:
       app_net:
-        ipv4_address: 172.18.233.22
     expose:
       - "8301"
       - "8301/udp"
@@ -58,7 +52,7 @@ services:
       - "8500"
       - "8600"
       - "8600/udp"
-  app1:
+  app:
     volumes:
       - ./consul-app-config/consul:/consul/config
     image: tramasoli/consul-demo-client:app
@@ -68,16 +62,10 @@ services:
     volumes:
       - ./consul-nginx-config/consul-template:/consul-template
       - ./consul-nginx-config/consul:/consul/config
+      - ./consul-nginx-config/nginx/nginx.conf:/etc/nginx/nginx.conf
     image: tramasoli/consul-demo-client:nginx
     networks:
       - app_net
 
 networks:
   app_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.18.233.0/24
-          gateway: 172.18.233.1
-          ip_range: 172.18.233.64/26
