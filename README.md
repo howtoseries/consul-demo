@@ -59,27 +59,27 @@ Let's get to the interesting part.
 REALLY, I'm serious, if you didn't setup Consul as you DNS server do it NOW.
 
 Then:
-* curl http://app1.service.consul:8080/greeting; echo
-* curl http://nginx.service.consul/greeting; echo
+* curl http://app.service.consul:8080/greeting; echo
+* curl http://nginx.service.consul/app/greeting; echo
 
 Nice! The response will be the same in both calls, but we'll improve that in a little bit.
 
 Docker-Compose let's us do a simple yet powerful trick: scale the apps it defines. In this scenario the true power of the Service Registry kicks in.
 
 So you can for instance:
-* docker-compose scale app1=4 (I don't recommend getting this number high 'cause - you know - springboot is JAVA, the resources eater)
+* docker-compose scale app=4 (I don't recommend getting this number high 'cause - you know - springboot is JAVA, the resources eater)
 * docker-compose scale nginx=3 (5,7,10)
 
 Now redo the previous test:
-* curl http://app1.service.consul:8080/greeting; echo
-* curl http://nginx.service.consul/greeting; echo
+* curl http://app.service.consul:8080/greeting; echo
+* curl http://nginx.service.consul/app/greeting; echo
 
 Preferably this way:
-* curl http://app1.service.consul:8080/greeting && curl http://nginx.service.consul/greeting
+* curl http://app.service.consul:8080/greeting && curl http://nginx.service.consul/app/greeting
 
 And LOTS of times.
 
-The hostname in the RESPONSE should change each time (or maybe not each time using app1... because of DNS cache).
+The hostname in the RESPONSE should change each time (or maybe not each time using app... because of DNS cache).
 
 We could then play with the size of the layers independently (horizontal scaling simulated).
 

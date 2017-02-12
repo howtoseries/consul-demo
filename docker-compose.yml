@@ -10,6 +10,8 @@ services:
     networks:
       app_net:
     expose:
+      - "8300"
+      - "8300/udp"
       - "8301"
       - "8301/udp"
       - "8302"
@@ -27,6 +29,8 @@ services:
     networks:
       app_net:
     expose:
+      - "8300"
+      - "8300/udp"
       - "8301"
       - "8301/udp"
       - "8302"
@@ -44,6 +48,8 @@ services:
     networks:
       app_net:
     expose:
+      - "8300"
+      - "8300/udp"
       - "8301"
       - "8301/udp"
       - "8302"
