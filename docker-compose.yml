@@ -1,4 +1,4 @@
-version: '2'
+version: "3"
 
 services:
   consul1:
@@ -20,6 +20,8 @@ services:
       - "8500"
       - "8600"
       - "8600/udp"
+    ports:
+      - "8500"
   consul2:
     hostname: consul2
     image: consul
@@ -39,6 +41,8 @@ services:
       - "8500"
       - "8600"
       - "8600/udp"
+    ports:
+      - "8500"
   consul3:
     hostname: consul3
     image: consul
@@ -58,12 +62,16 @@ services:
       - "8500"
       - "8600"
       - "8600/udp"
+    ports:
+      - "8500"
   app:
     volumes:
       - ./consul-app-config/consul:/consul/config
     image: tramasoli/consul-demo-client:app
     networks:
       - app_net
+    ports:
+      - "8080"
   nginx:
     volumes:
       - ./consul-nginx-config/consul-template:/consul-template
@@ -72,6 +80,7 @@ services:
     image: tramasoli/consul-demo-client:nginx
     networks:
       - app_net
-
+    ports:
+      - "80"
 networks:
   app_net:

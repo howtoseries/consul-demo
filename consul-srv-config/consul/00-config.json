@@ -2,6 +2,10 @@
   "skip_leave_on_interrupt": true,
   "leave_on_terminate": false,
   "bind_addr": "0.0.0.0",
+  "addresses": {
+    "http": "0.0.0.0",
+    "dns": "0.0.0.0"
+  },
   "data_dir": "/consul/data",
   "log_level": "INFO",
   "server": true,
