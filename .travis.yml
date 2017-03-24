@@ -1,0 +1,30 @@
+language: python
+
+python:
+  - 2.7
+
+sudo: required
+
+branches:
+  only:
+    - master
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.11.2
+
+services:
+  - docker
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+
+install:
+  - docker-compose up
+
+script:
+  - "curl http://`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' consuldemo_nginx_1`/app/greeting"

@@ -1,4 +1,4 @@
-# consul-demo
+# consul-demo [![Build Status](https://travis-ci.org/howtoseries/consul-demo.svg?branch=master)](https://travis-ci.org/howtoseries/consul-demo)
 
 ## Purpose
 
