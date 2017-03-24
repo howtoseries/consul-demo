@@ -24,7 +24,7 @@ before_install:
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
 
 install:
-  - docker-compose up
+  - docker-compose up -d
 
 script:
-  - "curl http://`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' consuldemo_nginx_1`/app/greeting"
+  - sleep 300; curl http://`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' consuldemo_nginx_1`/app/greeting
